@@ -137,7 +137,7 @@ if __name__ == '__main__':
 
     trainer = Trainer(
         model=metaphor_model,
-        processing_class=tokenizer
+        processing_class=tokenizer,
         data_collator=data_collator,
         tokenizer=tokenizer,
     )
