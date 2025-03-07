@@ -139,7 +139,6 @@ if __name__ == '__main__':
         model=metaphor_model,
         processing_class=tokenizer,
         data_collator=data_collator,
-        tokenizer=tokenizer,
     )
 
     print(ds[0])
@@ -151,9 +150,9 @@ if __name__ == '__main__':
 
     novel_metaphor_model = RobertaForTokenClassification.from_pretrained(novel_metaphor_model, num_labels=2, type_vocab_size=2)
     trainer = Trainer(
-        model=novel_metaphor_model,
+        model=metaphor_model,
+        processing_class=tokenizer,
         data_collator=data_collator,
-        tokenizer=tokenizer,
     )
 
     ds = ds.add_column('metaphor_predictions', metaphor_predictions)
@@ -169,9 +168,9 @@ if __name__ == '__main__':
 
     frame_model = RobertaForTokenClassification.from_pretrained(frame_model)
     trainer = Trainer(
-        model=frame_model,
+        model=metaphor_model,
+        processing_class=tokenizer,
         data_collator=data_collator,
-        tokenizer=tokenizer,
     )
 
     ds = ds.remove_columns(['token_type_ids'])
