@@ -150,7 +150,7 @@ if __name__ == '__main__':
 
     novel_metaphor_model = RobertaForTokenClassification.from_pretrained(novel_metaphor_model, num_labels=2, type_vocab_size=2)
     trainer = Trainer(
-        model=metaphor_model,
+        model=novel_metaphor_model,
         processing_class=tokenizer,
         data_collator=data_collator,
     )
@@ -168,7 +168,7 @@ if __name__ == '__main__':
 
     frame_model = RobertaForTokenClassification.from_pretrained(frame_model)
     trainer = Trainer(
-        model=metaphor_model,
+        model=novel_metaphor_model,
         processing_class=tokenizer,
         data_collator=data_collator,
     )
