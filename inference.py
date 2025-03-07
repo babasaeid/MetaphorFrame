@@ -168,7 +168,7 @@ if __name__ == '__main__':
 
     frame_model = RobertaForTokenClassification.from_pretrained(frame_model)
     trainer = Trainer(
-        model=novel_metaphor_model,
+        model=frame_model,
         processing_class=tokenizer,
         data_collator=data_collator,
     )
